@@ -1,0 +1,25 @@
+{
+  "name": "version",
+  "version": "1.0.0",
+  "description": "A command line tool and node package for automating version update",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ndifreke/version.git"
+  },
+  "keywords": [
+    "version",
+    "automation",
+    "command",
+    "linux"
+  ],
+  "author": "Ndifreke",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ndifreke/version/issues"
+  },
+  "homepage": "https://github.com/ndifreke/version#readme"
+}
