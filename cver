@@ -1,0 +1,4 @@
+#!/usr/bin/env node
+
+const parseCommandArg = require('./lib/terminal');
+parseCommandArg();

@@ -25,11 +25,12 @@ Another variant is the node_modules package that can be obtained from npm. This 
 
 ```sh 
 ## Display help option
-./lib/terminal -h
+
+cver -h
 
 Usage: 
-version [ -v semver ] [-p [ 0 => PATCH, 1 => MINOR, 2 => MAJOR ] ]
-version [ -f file   ] [ -d delimeter ]
+cver [ -v semver ] [-p [ 0 => PATCH, 1 => MINOR, 2 => MAJOR ] ]
+cver [ -f file   ] [ -d delimeter ]
 ```
 Updating version on command line can be done in two ways.
 1. Returning the output of the update to the console
@@ -50,16 +51,22 @@ This command takes the -v and -p argument and writes the result to the console
 
 ##### Examples
 ```sh 
-cver -v 0.2.3 -p 1
+$ cver -v 0.2.3 -p 1
 0.3.3
 
-cver -v 9.9.9 -p 0
+$ cver -v 9.9.9 -p 0
 10.0.0
 
-cver -v 9.9.9 -p 9
--p argument must match any of [012]
+$ cver -v 9.9.90 -p 2
+error: -v Argument must use semantic schema 
 
+$ cver -v 9.9.9 -p 9
+error: -p argument must match any of [012]
+
+$ cver -v 9.9.90 -p 9 -f
+error : Cannot combine -d and -f flag with -v or -p flag
  ```
+The -v flag cannot be used with with -f or -d flag as operation with this flags writes to a file 
 
 #### As Node.js Module
 ```javascript
@@ -89,6 +96,7 @@ console.log(version('0.3.1').update(Version.MAJOR)) // 1.3.1
 ####  Next Release Plan Update
 - support more than 1 digt in MAJOR PART
 - Return error code if command is run without any argument
+- Allow using of -p flag with -f and -d flag
 
 #
 
